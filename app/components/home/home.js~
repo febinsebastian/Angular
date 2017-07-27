@@ -1,0 +1,63 @@
+
+angular.module('router')
+.config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider  
+      .state('login', {
+          url: "/login",
+          templateUrl: "app/components/home/home.html",
+          title:'Login',
+          controller:"LoginCtrl"
+      }) 
+});
+
+angular.module('controllers')
+.controller('LoginCtrl', ['$scope','LoginService','$state', function ($scope, LoginService, $state) {
+
+  function init(){
+      $scope.access = true;
+      $scope.language = 'en';
+      $scope.loginData = {
+          username: '',
+          password: ''
+      };
+  }
+
+
+  $scope.login = function(){
+      //$state.go('systemadmin')
+      LoginService.signIn($scope.loginData.username,$scope.loginData.password);
+  }
+
+  init();
+
+}]);
+
+angular.module('services')
+.factory('LoginService', function ($http, urlService, $state, $log) {
+    function signIn(uname,pass) {
+        $.ajax({
+            crossDomain: true,
+            type: 'POST',
+            cache: false,
+            url: urlService.BASE_URL + urlService.DO_session,
+            data: {
+                userid: uname,
+                password: pass,
+            },
+            dataType: 'json',
+            success: function (response) {
+                localStorage.setItem('token',response.session.token);
+                localStorage.setItem('UserName',response.session.username);
+                $state.go('systemadmin');
+            },
+            error: function (errorType, textStatus, errorThrown) {
+            }
+        });
+    };
+
+  return {
+      signIn: signIn
+  };
+
+});
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sample</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"> 
+	<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+
+</head>
+<body ng-app="app">
+	<div ui-view></div>
+
+	<!-- Start Bower Components -->
+	<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+	<!-- End Bower Compoenets -->
+
+	<script src="app/app.module.js"></script>
+	<script src="app/app.router.js"></script>	
+	<script src="app/components/home/home.js"></script>	
+	
+</body>
+</html>

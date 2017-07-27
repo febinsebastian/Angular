@@ -1,0 +1,25 @@
+
+'use strict';
+
+var nbldpController = angular.module('controllers', []);
+var nbldpServices = angular.module('services', []);
+var nbldpRouter = angular.module('router', ['ui.router']);
+
+var nbldp = angular.module('nbldp', [
+    'controllers',
+    'services',
+    'router'
+]);
+
+nbldp.run(function($rootScope, $state) {
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+        if ((toState.name != 'login') && (toState.name != 'lock') && ($rootScope.allowedState != toState.name)) {
+            event.preventDefault();            
+                
+        }
+        else if(toState.name == 'login') {
+            localStorage.removeItem('UserName');
+            localStorage.removeItem('token');
+        }
+    });
+});

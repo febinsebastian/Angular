@@ -1,0 +1,22 @@
+{
+    "name": "SampleApplication",
+    "version": "1.0.0",
+    "description": "Sample Application for the angular projects",
+    "main": "app.js",
+    "author": "Febin Sebastian",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.14.0"
+    },
+    "devDependencies": {
+        "angular-mocks": "^1.6.1",
+        "open": "0.0.5",
+        "angular": "^1.6.1",
+        "angular-ui-router": "^0.3.2",
+        "jquery": "^3.1.1",
+        "bootstrap": "^3.3.7"
+    }
+}
