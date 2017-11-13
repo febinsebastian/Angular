@@ -1,7 +1,7 @@
 var express = require('express'),
 	app = express(),
 	open = require('open'),
-    port = 3000;
+    port = 3001;
 
 app.use(express.static(__dirname + '/'));
 

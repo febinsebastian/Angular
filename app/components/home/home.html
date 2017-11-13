@@ -1,1 +1,40 @@
-<h1>WORKING......</h1>
+<div class="container-fluid main-heading">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>KNOW YOUR WHEATHER</h1>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row search-bar">
+		<div class="col-sm-offset-3 col-sm-4">
+			<input type="text" name="search" class="form-control" ng-model="searchkey" placeholder="Your city name">
+		</div>
+		<div class="col-sm-4">
+			<button class="btn btn-info" ng-click="search()">Search</button>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-offset-4 col-sm-4">
+			<img src="assets/img/Ripple.gif" ng-show="showLoader">
+			<p ng-show="error" class="error">Sorry we can't find your city</p>
+		</div>
+	</div>
+	<div class="row temperature" ng-show="temperature">
+		<div class="col-sm-3 temp">
+			<img src="assets/img/temp.png">
+			<h1> {{temperature.main.temp-273 | number:2}} &#x2103; </h1>
+		</div>
+		<div class="col-sm-3 desc">
+			<h2> {{temperature.weather[0].description}}</h2>
+		</div>
+		<div class="col-sm-6 details">
+			<p>Pressure : {{temperature.main.pressure}}</p>
+			<p>Humidity : {{temperature.main.humidity}}</p>
+			<p>Minumun Temp : {{temperature.main.temp_min-273 | number:2}} &#x2103; </p>
+			<p>Maximum Temp : {{temperature.main.temp_max-273 | number:2}} &#x2103; </p>
+		</div>	
+	</div>
+</div>
